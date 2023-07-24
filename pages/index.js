@@ -1,8 +1,8 @@
 import config from "../config.json";
-
+import styled from "styled-components";
 function HomePage() {
     const mensagem = 'Bem vindo ao aluratTUBE!'
-    const estilosDaHomePage ={backgroundColor:"black", color: 'white'};
+    const estilosDaHomePage ={backgroundColor:"black", color: 'white', borderRadius: '15px', margin: '25px'};
     return (
         <div style={estilosDaHomePage}>
         <Menu/>
@@ -15,18 +15,39 @@ function HomePage() {
   export default HomePage
 
   function Menu() {
+    const estilosDoMenu ={margin: '25px'};
     return (
-        <div>
+        <div style={estilosDoMenu}>
             <h1>VAI PORRA</h1>
         </div>
     )
   }
+
+  const StyledHeader = styled.div`
+  img{
+    width:80px;
+    height: 80px;
+    border-radius:50%;
+  }
+  .user-info{
+    display: flex;
+    align-items: center;
+    
+  }
+  `;
+
   function Header() {
+
     return (
-        <div>
-            <img src="banner"/>
+        <StyledHeader >
+          <section className="user-info">
+            {/*<img src="banner"*/}
             <img src={`https://github.com/${config.github}.png`}/>
-        </div>
+            {config.nome}
+            {config.trabalho}
+          </section>
+
+        </StyledHeader>
 
     )
   }
